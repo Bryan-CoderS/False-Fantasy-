@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://dsmhblm2gb13f"
+path="res://.godot/imported/beforebossfight.dialogue-93b196f8f8a1fb20b8283e2102ab99d2.tres"
+
+[deps]
+
+source_file="res://beforebossfight.dialogue"
+dest_files=["res://.godot/imported/beforebossfight.dialogue-93b196f8f8a1fb20b8283e2102ab99d2.tres"]
+
+[params]
+
+defaults=true

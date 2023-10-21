@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fm5jevriaqi1"
+path="res://.godot/imported/Alert! Outsider!.mp3-49c09c180f1744c989adc4b82d50e93a.mp3str"
+
+[deps]
+
+source_file="res://Alert! Outsider!.mp3"
+dest_files=["res://.godot/imported/Alert! Outsider!.mp3-49c09c180f1744c989adc4b82d50e93a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

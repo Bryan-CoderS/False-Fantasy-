@@ -1,0 +1,171 @@
+[gd_scene load_steps=24 format=3 uid="uid://do4hixlfwc6gl"]
+
+[ext_resource type="Texture2D" uid="uid://b6otaqlwdwst" path="res://sliding_puzzle1.jpg" id="1_28nm6"]
+[ext_resource type="Script" path="res://puzzle_1.gd" id="1_eafml"]
+[ext_resource type="PackedScene" uid="uid://b6m6o0u6ojkqe" path="res://cut_scene_1.tscn" id="2_exojm"]
+[ext_resource type="Texture2D" uid="uid://wi6uubyswk5u" path="res://sliding_puzzle2.jpg" id="2_mry4x"]
+[ext_resource type="Texture2D" uid="uid://0uymfrgee0gk" path="res://sliding_puzzle3.jpg" id="3_2la7j"]
+[ext_resource type="AudioStream" uid="uid://b2we3d6npc1hk" path="res://foreast-05.mp3" id="3_yx5cq"]
+[ext_resource type="Texture2D" uid="uid://d3g8j2irp6kqd" path="res://sliding_puzzle4.jpg" id="4_xdvlw"]
+[ext_resource type="Texture2D" uid="uid://fckcl11jli5w" path="res://sliding_puzzle5.jpg" id="5_p28n4"]
+[ext_resource type="Texture2D" uid="uid://dinvi4l0v5xpt" path="res://sliding_puzzle6.jpg" id="6_stogw"]
+[ext_resource type="Texture2D" uid="uid://dt760yr4264l8" path="res://sliding_puzzle7.jpg" id="7_fvh5t"]
+[ext_resource type="Texture2D" uid="uid://dvg82d8k6e42t" path="res://sliding_puzzle8.jpg" id="8_c1n5a"]
+[ext_resource type="Texture2D" uid="uid://xsjmsjd7h2gl" path="res://sliding_puzzle9.jpg" id="9_oc3pp"]
+[ext_resource type="Texture2D" uid="uid://cfi2ed2gjwhp0" path="res://door1_0-removebg-preview.png" id="12_odtcf"]
+[ext_resource type="Texture2D" uid="uid://coekeqev0jffm" path="res://door1_1-removebg-preview.png" id="13_yjl5v"]
+[ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="14_ip6ii"]
+[ext_resource type="Texture2D" uid="uid://bdmlqc0yea6nv" path="res://slime_puzzle.jpg" id="16_piasd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icipq"]
+size = Vector2(750, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5ysq"]
+atlas = ExtResource("12_odtcf")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glpaa"]
+atlas = ExtResource("13_yjl5v")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6i71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5ysq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glpaa")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyd2d"]
+bg_color = Color(0.00784314, 0.00784314, 0.00784314, 0.392157)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3kc5"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaf6a"]
+bg_color = Color(0, 0, 0, 0.686275)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Puzzle1" type="Area2D"]
+script = ExtResource("1_eafml")
+Scene_2 = ExtResource("2_exojm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yx5cq")
+autoplay = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(376, 376)
+shape = SubResource("RectangleShape2D_icipq")
+
+[node name="Puzzle1" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+texture = ExtResource("1_28nm6")
+centered = false
+
+[node name="Puzzle2" type="Sprite2D" parent="."]
+position = Vector2(376, 126)
+texture = ExtResource("2_mry4x")
+
+[node name="Puzzle3" type="Sprite2D" parent="."]
+position = Vector2(626, 126)
+texture = ExtResource("3_2la7j")
+
+[node name="Puzzle4" type="Sprite2D" parent="."]
+position = Vector2(126, 376)
+texture = ExtResource("4_xdvlw")
+
+[node name="Puzzle5" type="Sprite2D" parent="."]
+position = Vector2(376, 376)
+texture = ExtResource("5_p28n4")
+
+[node name="Puzzle6" type="Sprite2D" parent="."]
+position = Vector2(626, 376)
+texture = ExtResource("6_stogw")
+
+[node name="Puzzle7" type="Sprite2D" parent="."]
+position = Vector2(126, 626)
+texture = ExtResource("7_fvh5t")
+
+[node name="Puzzle8" type="Sprite2D" parent="."]
+position = Vector2(376, 626)
+texture = ExtResource("8_c1n5a")
+
+[node name="Puzzle9" type="Sprite2D" parent="."]
+position = Vector2(626, 626)
+texture = ExtResource("9_oc3pp")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(944, 360)
+scale = Vector2(0.544, 0.544)
+sprite_frames = SubResource("SpriteFrames_w6i71")
+animation = &"Open"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DoorSprite"]
+offset_left = -191.0
+offset_top = 221.0
+offset_right = 265.0
+offset_bottom = 383.0
+theme_override_fonts/normal_font = ExtResource("14_ip6ii")
+theme_override_font_sizes/normal_font_size = 50
+text = "Solve the puzzle to open the door"
+
+[node name="SlimePuzzle" type="Sprite2D" parent="."]
+position = Vector2(840, 80)
+scale = Vector2(0.564, 0.564)
+texture = ExtResource("16_piasd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 912.0
+offset_top = 8.0
+offset_right = 1184.0
+offset_bottom = 80.0
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Start Button" type="Button" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("14_ip6ii")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyd2d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d3kc5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eaf6a")
+text = "Skip"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 944.0
+offset_top = 80.0
+offset_right = 1152.0
+offset_bottom = 176.0
+theme_override_colors/default_color = Color(0.992157, 0.168627, 0.203922, 1)
+theme_override_fonts/normal_font = ExtResource("14_ip6ii")
+theme_override_font_sizes/normal_font_size = 21
+text = "Skipping this level will cost you 1 hp"
+
+[connection signal="button_up" from="VBoxContainer/MarginContainer/Start Button" to="." method="_on_start_button_button_up"]

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_li0ov"]
+
+[resource]
+script = ExtResource("1_li0ov")
+titles = {
+"start": "3"
+}
+character_names = PackedStringArray("Unknown Sound")
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "start",
+"type": "title"
+},
+"3": {
+"character": "Unknown Sound",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "4",
+"text": "Solve the puzzle...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Solve the puzzle...",
+"type": "dialogue"
+},
+"4": {
+"character": "Unknown Sound",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "6",
+"text": "Good luck...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Good luck...",
+"type": "dialogue"
+},
+"6": {
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+}
+}
+metadata/dialogue_manager_version = "2.16.0"

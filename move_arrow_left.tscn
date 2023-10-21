@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctc0gcdp7i6l7"]
+
+[ext_resource type="Script" path="res://move_arrow_left.gd" id="1_euqvl"]
+[ext_resource type="Texture2D" uid="uid://cs41qeheaos5w" path="res://arrow_1-removebg-preview.png" id="1_murye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd04m"]
+size = Vector2(110, 101)
+
+[node name="Move_ArrowLeft" type="Area2D"]
+script = ExtResource("1_euqvl")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_murye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -2.5)
+shape = SubResource("RectangleShape2D_qd04m")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]

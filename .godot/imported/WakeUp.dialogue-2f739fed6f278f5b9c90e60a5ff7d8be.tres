@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_cahcm"]
+
+[resource]
+script = ExtResource("1_cahcm")
+titles = {
+"Start": "3"
+}
+character_names = PackedStringArray("Clock", "You")
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "Start",
+"type": "title"
+},
+"10": {
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+},
+"3": {
+"character": "Clock",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "4",
+"text": "TTTTTTTTTTTTTTTTTTT...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "TTTTTTTTTTTTTTTTTTT...",
+"type": "dialogue"
+},
+"4": {
+"character": "You",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "5",
+"text": "Argh!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Argh!",
+"type": "dialogue"
+},
+"5": {
+"character": "You",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "6",
+"text": "I had a weird dream...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I had a weird dream...",
+"type": "dialogue"
+},
+"6": {
+"character": "You",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "7",
+"text": "Did I do my math homework...?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Did I do my math homework...?",
+"type": "dialogue"
+},
+"7": {
+"character": "Clock",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "8",
+"text": "TTTTTTTTTTTTTTTTTTTTTTTT...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "TTTTTTTTTTTTTTTTTTTTTTTT...",
+"type": "dialogue"
+},
+"8": {
+"character": "You",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "10",
+"text": "It's time for school...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "It's time for school...",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.16.0"

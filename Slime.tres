@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b6l1835ubbu1x"]
+
+[ext_resource type="Script" path="res://BaseEnemy.gd" id="1_8u837"]
+[ext_resource type="Texture2D" uid="uid://ctvmkeufh83bc" path="res://Blue_slime_re_01-removebg-preview.png" id="2_6ijdj"]
+
+[resource]
+script = ExtResource("1_8u837")
+name = "Blue Slime"
+texture = ExtResource("2_6ijdj")
+hunger = 50
+damage = 10

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bual8k30pmg10"]
+
+[ext_resource type="AudioStream" uid="uid://cqt05ds8m6ubm" path="res://song_1.mp3" id="1_bi2lk"]
+[ext_resource type="Script" path="res://conductor.gd" id="2_tf5rx"]
+
+[node name="Conductor" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_bi2lk")
+script = ExtResource("2_tf5rx")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

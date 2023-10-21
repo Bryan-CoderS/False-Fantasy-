@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw5e76vo1qoy1"]
+
+[ext_resource type="Script" path="res://BounceArea.gd" id="1_4aoty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_intl4"]
+size = Vector2(122, 118)
+
+[node name="BounceArea" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_4aoty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(129, 179)
+shape = SubResource("RectangleShape2D_intl4")

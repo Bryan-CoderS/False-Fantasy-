@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://xe1an2hxmqbu"]
+
+[ext_resource type="Script" path="res://bad_end.gd" id="1_yfs83"]
+[ext_resource type="Texture2D" uid="uid://cqs8hlxr2vyuv" path="res://bad_end_1.jpg" id="2_04bp4"]
+[ext_resource type="Texture2D" uid="uid://e1rtmt6vhi1v" path="res://bad_end_2.jpg" id="3_ooou8"]
+[ext_resource type="Texture2D" uid="uid://c54jeu2qjsm6d" path="res://bad_end_3.jpg" id="4_rl3ua"]
+[ext_resource type="Texture2D" uid="uid://dxygk5nc8p3dq" path="res://bad_end_4.jpg" id="5_hlhbd"]
+[ext_resource type="Texture2D" uid="uid://kpf10vdr7if7" path="res://bad_end_5.jpg" id="6_qupty"]
+[ext_resource type="Texture2D" uid="uid://d4g8cno4ssvxh" path="res://bad_end_6.jpg" id="7_srfo6"]
+[ext_resource type="Texture2D" uid="uid://cjy5r87ff6f80" path="res://bad_end_7.jpg" id="8_tn5ii"]
+[ext_resource type="Texture2D" uid="uid://x4mjfqorwdmv" path="res://bad_end_8.jpg" id="9_mchjj"]
+[ext_resource type="Texture2D" uid="uid://wmigc0vbkuij" path="res://bad_end_9.jpg" id="10_x1pxf"]
+[ext_resource type="Texture2D" uid="uid://ct7t888ti388m" path="res://bad_end_10.jpg" id="11_bi500"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxqtb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_04bp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ooou8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rl3ua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hlhbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qupty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_srfo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tn5ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mchjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mchjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mchjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x1pxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x1pxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x1pxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x1pxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bi500")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bi500")
+}],
+"loop": false,
+"name": &"bad_end",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_mchjj")
+}],
+"loop": true,
+"name": &"black",
+"speed": 5.0
+}]
+
+[node name="Bad End" type="Node2D"]
+script = ExtResource("1_yfs83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 326)
+sprite_frames = SubResource("SpriteFrames_xxqtb")
+animation = &"bad_end"

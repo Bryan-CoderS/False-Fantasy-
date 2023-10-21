@@ -1,0 +1,402 @@
+[gd_scene load_steps=23 format=3 uid="uid://bycfvifxvodd2"]
+
+[ext_resource type="Script" path="res://battle_2.gd" id="1_imf47"]
+[ext_resource type="Resource" uid="uid://bsc3l1pyh3qpt" path="res://EggSlime.tres" id="2_g1n28"]
+[ext_resource type="Texture2D" uid="uid://cs0m3rh71g1fj" path="res://bg_fight.jpg" id="3_k5yf1"]
+[ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="4_m8mgi"]
+[ext_resource type="AudioStream" uid="uid://cw0its3rfc122" path="res://awake10_megaWall.mp3" id="4_wcd4o"]
+[ext_resource type="FontFile" uid="uid://cn8120chtc6ds" path="res://slkscre.ttf" id="6_qmqli"]
+[ext_resource type="FontFile" uid="uid://dx3ef33xdewy4" path="res://slkscreb.ttf" id="7_yo1km"]
+[ext_resource type="Texture2D" uid="uid://br4h4jnwbssdj" path="res://Egg_slime_01-removebg-preview.png" id="9_fwkvi"]
+[ext_resource type="Texture2D" uid="uid://naamunyrl3yp" path="res://Egg_slime_eat_a-removebg-preview.png" id="10_so0mx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5a15"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsjst"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33u7m"]
+bg_color = Color(0, 0, 0, 0.639216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2va3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wgmx"]
+bg_color = Color(0.745098, 0.745098, 0.745098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8sjh"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ukhg"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_rt1np"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeContainer/Slime:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlimeContainer/Slime:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_35dco"]
+resource_name = "mini_shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-56, 96), Vector2(192, 24), Vector2(-8, 8), Vector2(17.8, 1), Vector2(0, 0), Vector2(-5, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_6sg24"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-56, 96), Vector2(-128, -32), Vector2(192, 24), Vector2(20, -1), Vector2(-8, 8), Vector2(168, -40), Vector2(17.8, 1), Vector2(48, 88), Vector2(29, 1), Vector2(0, 0), Vector2(-5, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_fabhl"]
+resource_name = "slime_die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeContainer/Slime:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3ow2"]
+_data = {
+"RESET": SubResource("Animation_rt1np"),
+"mini_shake": SubResource("Animation_35dco"),
+"shake": SubResource("Animation_6sg24"),
+"slime_die": SubResource("Animation_fabhl")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ja4ul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_fwkvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_so0mx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fwkvi")
+}],
+"loop": false,
+"name": &"eat",
+"speed": 5.0
+}]
+
+[node name="Battle2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_imf47")
+slime = ExtResource("2_g1n28")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_k5yf1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 552)
+stream = ExtResource("4_wcd4o")
+autoplay = true
+
+[node name="SlimeContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -212.0
+offset_right = 225.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="SlimeContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_n5a15")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fsjst")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="SlimeContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("4_m8mgi")
+text = "Hunger: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slime" type="TextureRect" parent="SlimeContainer"]
+layout_mode = 2
+texture = ExtResource("9_fwkvi")
+expand_mode = 5
+stretch_mode = 3
+
+[node name="PlayerPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 552.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_33u7m")
+
+[node name="PlayerData" type="HBoxContainer" parent="PlayerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_m8mgi")
+theme_override_font_sizes/font_size = 30
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_n5a15")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fsjst")
+step = 1.0
+value = 25.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("4_m8mgi")
+text = "Hp: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_33u7m")
+
+[node name="Actions" type="HBoxContainer" parent="ActionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Feed" type="Button" parent="ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m8mgi")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_w2va3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3wgmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8sjh")
+text = "Feed"
+
+[node name="Defend" type="Button" parent="ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m8mgi")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_w2va3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3wgmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8sjh")
+text = "Defend"
+
+[node name="Run" type="Button" parent="ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m8mgi")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_w2va3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3wgmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8sjh")
+text = "RUN"
+
+[node name="Textbox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = -24.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ukhg")
+
+[node name="Label" type="Label" parent="Textbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_qmqli")
+theme_override_font_sizes/font_size = 45
+text = "A hungry slime appears!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ticker" type="Label" parent="Textbox"]
+layout_mode = 0
+offset_left = 1072.0
+offset_top = 72.0
+offset_right = 1096.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("7_yo1km")
+theme_override_font_sizes/font_size = 25
+text = ">"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_s3ow2")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="SlimeEat" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 376)
+scale = Vector2(2.08318, 2.22167)
+sprite_frames = SubResource("SpriteFrames_ja4ul")
+animation = &"eat"
+frame = 2
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="gui_input" from="SlimeContainer/Slime" to="." method="_on_slime_gui_input"]
+[connection signal="pressed" from="ActionsPanel/Actions/Feed" to="." method="_on_feed_pressed" flags=18]
+[connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_pressed" flags=18]
+[connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed" flags=18]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
