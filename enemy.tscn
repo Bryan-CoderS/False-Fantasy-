@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0lw6lg1hdkcr"]
-
-[ext_resource type="PackedScene" uid="uid://blmyvndu41m5p" path="res://slime_blue.tscn" id="1_r1xjr"]
-
-[node name="Enemy" type="CharacterBody2D"]
-
-[node name="Slime_Blue" parent="." instance=ExtResource("1_r1xjr")]
