@@ -273,23 +273,23 @@ func _on_a_pressed():
 		set_hunger($SlimeContainer/ProgressBar, current_slime_hunger, slime.hunger)
 		await get_tree().create_timer(1.0).timeout
 	
-	if current_slime_hunger == 0:
-		if Global.defeat_boss == false:
-			Global.defeat_boss = true
-			$Trophy.show()
-			$ColorRect.show()
-			$AudioStreamPlayer2D2.play()
-			await get_tree().create_timer(1.5).timeout
-			$Trophy.hide()
-			$ColorRect.hide()
-		display_text("%s is sastify" % slime.name)
-		await textbox_closed
-		
-		$AnimationPlayer.play("slime_die")
-		await  $AnimationPlayer
-		
-		await get_tree().create_timer(1.0).timeout	
-		get_tree().change_scene_to_file("res://black_scene.tscn")
+		if current_slime_hunger == 0:
+			if Global.defeat_boss == false:
+				Global.defeat_boss = true
+				$Trophy.show()
+				$ColorRect.show()
+				$AudioStreamPlayer2D2.play()
+				await get_tree().create_timer(1.5).timeout
+				$Trophy.hide()
+				$ColorRect.hide()
+			display_text("%s is sastify" % slime.name)
+			await textbox_closed
+			
+			$AnimationPlayer.play("slime_die")
+			await  $AnimationPlayer
+			
+			await get_tree().create_timer(1.0).timeout	
+			get_tree().change_scene_to_file("res://black_scene.tscn")
 	
 	slime_turn()
 
@@ -307,18 +307,25 @@ func _on_b_pressed():
 		set_hunger($SlimeContainer/ProgressBar, current_slime_hunger, slime.hunger)
 		await get_tree().create_timer(1.0).timeout
 		
-	
-	if current_slime_hunger == 0:
-		if Global.defeat_boss == false:
-			Global.defeat_boss = true
-			$Trophy.show()
-			$ColorRect.show()
-			$AudioStreamPlayer2D2.play()
-			await get_tree().create_timer(1.5).timeout
-			$Trophy.hide()
-			$ColorRect.hide()
-		display_text("%s is sastify" % slime.name)
+		if current_slime_hunger == 0:
+			if Global.defeat_boss == false:
+				Global.defeat_boss = true
+				$Trophy.show()
+				$ColorRect.show()
+				$AudioStreamPlayer2D2.play()
+				await get_tree().create_timer(1.5).timeout
+				$Trophy.hide()
+				$ColorRect.hide()
+		display_text("%s is satisfied" % slime.name)
 		await textbox_closed
+			
+		$AnimationPlayer.play("slime_die")
+		await  $AnimationPlayer
+			
+		await get_tree().create_timer(1.0).timeout	
+		get_tree().change_scene_to_file("res://black_scene.tscn")
+		
+	
 	
 	slime_turn()
 	

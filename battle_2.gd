@@ -126,7 +126,7 @@ func slime_turn():
 			display_text("%s dealt %d damage!" % [slime.name, slime.damage])
 			await textbox_closed
 	else:
-		display_text("%s doesn't feel satified!" % slime.name)
+		display_text("%s doesn't feel satisfied!" % slime.name)
 		await textbox_closed
 		display_text("More!!!")
 		await textbox_closed

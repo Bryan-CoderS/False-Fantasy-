@@ -147,7 +147,7 @@ func slime_turn():
 		var numbers = [0, 1, 2, 3]
 		var sucess = numbers[randi() % numbers.size()]
 		if sucess == 1:
-			display_text("%s doesn't feel satified!" % slime.name)
+			display_text("%s doesn't feel satisfied!" % slime.name)
 			await textbox_closed
 			display_text("More!!!")
 			await textbox_closed
