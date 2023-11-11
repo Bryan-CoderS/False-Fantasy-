@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://b02nqeknmd3gg"]
+[gd_scene load_steps=19 format=3 uid="uid://b02nqeknmd3gg"]
 
 [ext_resource type="PackedScene" uid="uid://d1mqg5n6af2yo" path="res://scene_2_bg.tscn" id="1_chtbs"]
 [ext_resource type="Script" path="res://scene_2_1.gd" id="1_ftl07"]
 [ext_resource type="PackedScene" uid="uid://c4d2uvke714ft" path="res://player.tscn" id="2_okm4w"]
 [ext_resource type="AudioStream" uid="uid://b5s32d341lryx" path="res://Egg slime.mp3" id="2_wg7si"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="3_2vx1e"]
 [ext_resource type="Texture2D" uid="uid://f86swjkk5abb" path="res://level_1-removebg-preview.png" id="4_uqbn6"]
 [ext_resource type="Texture2D" uid="uid://demxsuvkhn37r" path="res://level_2-removebg-preview.png" id="5_a0qol"]
 [ext_resource type="Texture2D" uid="uid://cxdhc82gkko6u" path="res://level_3-removebg-preview.png" id="6_nyawh"]
@@ -1499,6 +1500,12 @@ script = ExtResource("1_ftl07")
 position = Vector2(400, 656)
 stream = ExtResource("2_wg7si")
 autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-3117, -472)
+scale = Vector2(0.585739, 0.585739)
+stream = ExtResource("3_2vx1e")
+max_distance = 2500.0
 
 [node name="scene2_bg" parent="." instance=ExtResource("1_chtbs")]
 position = Vector2(-4432, -224)

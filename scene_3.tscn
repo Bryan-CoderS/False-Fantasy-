@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://dtjjn17lg66sh"]
+[gd_scene load_steps=35 format=3 uid="uid://dtjjn17lg66sh"]
 
 [ext_resource type="Script" path="res://scene_3.gd" id="1_0xmon"]
 [ext_resource type="Texture2D" uid="uid://bsmc3kyypj1jy" path="res://cityBG.jpg" id="1_htkla"]
 [ext_resource type="PackedScene" uid="uid://c4d2uvke714ft" path="res://player.tscn" id="1_xmijx"]
 [ext_resource type="AudioStream" uid="uid://bbw26g05wwpv2" path="res://Leaf slime.mp3" id="2_d3uty"]
 [ext_resource type="Texture2D" uid="uid://vv56no58la1t" path="res://tile.jpg" id="2_urm5f"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="3_mw77j"]
 [ext_resource type="Texture2D" uid="uid://cfi2ed2gjwhp0" path="res://door1_0-removebg-preview.png" id="4_xh1tu"]
 [ext_resource type="Texture2D" uid="uid://2d6aa2mxvoel" path="res://arrow_7-removebg-preview.png" id="4_yxdso"]
 [ext_resource type="Texture2D" uid="uid://coekeqev0jffm" path="res://door1_1-removebg-preview.png" id="5_1068y"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://chrcvbdybpua1" path="res://star.png" id="7_0gpmu"]
 [ext_resource type="PackedScene" uid="uid://dpdu47uobx5y6" path="res://slime_g.tscn" id="7_jcapd"]
 [ext_resource type="PackedScene" uid="uid://3me8wra367h4" path="res://mushroom.tscn" id="11_a7hfr"]
+[ext_resource type="Texture2D" uid="uid://diq70ffsletix" path="res://Stars_Collecter-removebg-preview.png" id="11_tpxo8"]
 [ext_resource type="PackedScene" uid="uid://qhuthgalrg3x" path="res://star.tscn" id="12_8nuvq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sk5jg"]
@@ -1536,6 +1538,13 @@ script = ExtResource("1_0xmon")
 position = Vector2(-460, 1749)
 stream = ExtResource("2_d3uty")
 autoplay = true
+max_distance = 3000.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-3117, -472)
+scale = Vector2(0.585739, 0.585739)
+stream = ExtResource("3_mw77j")
+max_distance = 2500.0
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(741.279, 940.375)
@@ -1618,6 +1627,31 @@ script = ExtResource("6_fheef")
 position = Vector2(-38.001, -106)
 scale = Vector2(0.190104, 0.190104)
 texture = ExtResource("7_0gpmu")
+
+[node name="Trophy" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(-592.812, -208.092)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("11_tpxo8")
+
+[node name="Label" type="Label" parent="Player/Trophy"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_fonts/font = ExtResource("5_vts2g")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Player/Trophy"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_fonts/font = ExtResource("5_vts2g")
+theme_override_font_sizes/font_size = 60
+text = "Stars Collector
+"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(131, -20)

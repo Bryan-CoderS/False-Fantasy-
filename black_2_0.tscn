@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqmhe4fjpgytt"]
+[gd_scene load_steps=5 format=3 uid="uid://dqmhe4fjpgytt"]
 
 [ext_resource type="Script" path="res://Black2_0.gd" id="1_w37jf"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="2_q3e7u"]
+[ext_resource type="Texture2D" uid="uid://c28dy5faumh80" path="res://Died_a-removebg-preview.png" id="3_tcx2h"]
+[ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="4_6xyws"]
 
 [node name="Black2_0" type="Node2D"]
 script = ExtResource("1_w37jf")
@@ -11,3 +14,33 @@ offset_top = -126.0
 offset_right = 1235.0
 offset_bottom = 691.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(253.718, 456.693)
+scale = Vector2(0.34309, 0.34309)
+stream = ExtResource("2_q3e7u")
+
+[node name="Trophy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(157, 200)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("3_tcx2h")
+
+[node name="Label" type="Label" parent="Trophy"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_fonts/font = ExtResource("4_6xyws")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Trophy"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_fonts/font = ExtResource("4_6xyws")
+theme_override_font_sizes/font_size = 60
+text = "Forever Asleep
+"

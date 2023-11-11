@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://c0d721vnr0c8b"]
+[gd_scene load_steps=32 format=3 uid="uid://c0d721vnr0c8b"]
 
 [ext_resource type="Script" path="res://boss_fight_1.gd" id="1_vawgb"]
 [ext_resource type="Resource" uid="uid://c7cudaxknyfql" path="res://Boss.tres" id="2_s0e3s"]
 [ext_resource type="Texture2D" uid="uid://du3bf0mejye88" path="res://boss_bg.jpg" id="3_qma7t"]
 [ext_resource type="AudioStream" uid="uid://8lsod84bvvrn" path="res://Boss battle.mp3" id="3_qxhim"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="4_imvgg"]
 [ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="5_r4iv8"]
 [ext_resource type="Texture2D" uid="uid://d0oojqmg22plk" path="res://boss_normal-removebg-preview.png" id="6_s1qp2"]
 [ext_resource type="Texture2D" uid="uid://woyop4nkqhwy" path="res://boss_attack-removebg-preview.png" id="7_ct8vw"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://0diqfcw0ijw2" path="res://boss_gfire_glow-removebg-preview.png" id="9_3jklo"]
 [ext_resource type="FontFile" uid="uid://dx3ef33xdewy4" path="res://slkscreb.ttf" id="9_ps0do"]
 [ext_resource type="Texture2D" uid="uid://bdyvapqi5g82s" path="res://boss_rfire_glow-removebg-preview.png" id="10_28p8u"]
+[ext_resource type="Texture2D" uid="uid://bd12v1tafct7i" path="res://Killed_the_boss-removebg-preview.png" id="14_mstku"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7847"]
 bg_color = Color(1, 0, 0, 1)
@@ -311,6 +313,11 @@ scale = Vector2(1.31392, 1.31392)
 stream = ExtResource("3_qxhim")
 autoplay = true
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(253.718, 456.693)
+scale = Vector2(0.34309, 0.34309)
+stream = ExtResource("4_imvgg")
+
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1152.0
@@ -531,6 +538,41 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 248.0
+offset_top = 208.0
+offset_right = 1072.0
+offset_bottom = 344.0
+color = Color(0.827451, 0.784314, 0.666667, 1)
+
+[node name="Trophy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 288)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("14_mstku")
+
+[node name="Label" type="Label" parent="Trophy"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_r4iv8")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Trophy"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_r4iv8")
+theme_override_font_sizes/font_size = 60
+text = "Defeated Boss"
 
 [connection signal="pressed" from="ActionsPanel/Actions/A" to="." method="_on_a_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/B" to="." method="_on_b_pressed"]

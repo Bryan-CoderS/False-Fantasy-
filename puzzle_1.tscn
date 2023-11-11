@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://do4hixlfwc6gl"]
+[gd_scene load_steps=26 format=3 uid="uid://do4hixlfwc6gl"]
 
 [ext_resource type="Texture2D" uid="uid://b6otaqlwdwst" path="res://sliding_puzzle1.jpg" id="1_28nm6"]
 [ext_resource type="Script" path="res://puzzle_1.gd" id="1_eafml"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wi6uubyswk5u" path="res://sliding_puzzle2.jpg" id="2_mry4x"]
 [ext_resource type="AudioStream" uid="uid://cbxp5u2ldc0be" path="res://Sliding puzzle.mp3" id="3_0nf1n"]
 [ext_resource type="Texture2D" uid="uid://0uymfrgee0gk" path="res://sliding_puzzle3.jpg" id="3_2la7j"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="4_qh515"]
 [ext_resource type="Texture2D" uid="uid://d3g8j2irp6kqd" path="res://sliding_puzzle4.jpg" id="4_xdvlw"]
 [ext_resource type="Texture2D" uid="uid://fckcl11jli5w" path="res://sliding_puzzle5.jpg" id="5_p28n4"]
 [ext_resource type="Texture2D" uid="uid://dinvi4l0v5xpt" path="res://sliding_puzzle6.jpg" id="6_stogw"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://coekeqev0jffm" path="res://door1_1-removebg-preview.png" id="13_yjl5v"]
 [ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="14_ip6ii"]
 [ext_resource type="Texture2D" uid="uid://bdmlqc0yea6nv" path="res://slime_puzzle.jpg" id="16_piasd"]
+[ext_resource type="Texture2D" uid="uid://l2ov04eisjo" path="res://Skip_slidding_puzzle-removebg-preview.png" id="18_yeonw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icipq"]
 size = Vector2(750, 750)
@@ -70,6 +72,11 @@ Scene_2 = ExtResource("2_exojm")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_0nf1n")
 autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(253.718, 460.193)
+scale = Vector2(0.34309, 0.34309)
+stream = ExtResource("4_qh515")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(376, 376)
@@ -167,5 +174,40 @@ theme_override_colors/default_color = Color(0.992157, 0.168627, 0.203922, 1)
 theme_override_fonts/normal_font = ExtResource("14_ip6ii")
 theme_override_font_sizes/normal_font_size = 21
 text = "Skipping this level will cost you 1 hp"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 248.0
+offset_top = 208.0
+offset_right = 1072.0
+offset_bottom = 344.0
+color = Color(0.827451, 0.784314, 0.666667, 1)
+
+[node name="Trophy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 288)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("18_yeonw")
+
+[node name="Label" type="Label" parent="Trophy"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_ip6ii")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Trophy"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("14_ip6ii")
+theme_override_font_sizes/font_size = 60
+text = "Noob"
 
 [connection signal="button_up" from="VBoxContainer/MarginContainer/Start Button" to="." method="_on_start_button_button_up"]

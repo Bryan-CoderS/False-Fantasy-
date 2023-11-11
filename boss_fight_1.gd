@@ -7,6 +7,8 @@ signal textbox_closed
 var current_player_health = 0
 var current_slime_hunger = 0
 var is_defending = false
+var a_c = false
+var b_c = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +24,8 @@ func _ready():
 	$Textbox.hide()
 	$ActionsPanel.hide()
 	
+	display_text("Press Space to Continue")
+	await textbox_closed
 	display_text("An angry %s appears!" % slime.name)
 	await textbox_closed
 	display_text("90/30")
@@ -31,6 +35,8 @@ func _ready():
 	display_text("Choose one!")
 	await textbox_closed
 	$ActionsPanel.show()
+	a_c = true
+	b_c = false
 	
 	
 func _process(delta):
@@ -75,8 +81,10 @@ func question1():
 	await textbox_closed
 	display_text("What is x?")
 	await textbox_closed
-	display_text("A: 15 B: 20")
+	display_text("A: 20 B: 15")
 	await textbox_closed
+	a_c = false
+	b_c = true
 	$ActionsPanel.show()		
 		
 func question2():
@@ -84,6 +92,8 @@ func question2():
 	await textbox_closed
 	display_text("A: 56 B: 65")
 	await textbox_closed
+	a_c = true
+	b_c = false
 	$ActionsPanel.show()						
 	
 func question3():
@@ -91,20 +101,26 @@ func question3():
 	await textbox_closed
 	display_text("A: 21 B: 12")
 	await textbox_closed
+	a_c = true
+	b_c = false
 	$ActionsPanel.show()		
 	
 func question4():
 	display_text("1 + 1 * 2/1 = ?")
 	await textbox_closed
-	display_text("A: 3 B: 1")
+	display_text("A:1  B: 3")
 	await textbox_closed
+	a_c = false
+	b_c = true
 	$ActionsPanel.show()
 	
 func question5():
 	display_text("12 * 12 = ?")
 	await textbox_closed
-	display_text("A: 144 B: 134")
+	display_text("A: 134 B: 144")
 	await textbox_closed
+	a_c = false
+	b_c = true
 	$ActionsPanel.show()
 	
 func question6():
@@ -116,13 +132,17 @@ func question6():
 	await textbox_closed
 	display_text("A: 30 B: 15")
 	await textbox_closed
+	a_c = true
+	b_c = false
 	$ActionsPanel.show()
 	
 func question7():
 	display_text("21 / 3 = ?")
 	await textbox_closed
-	display_text("A: 7 B: 9")
+	display_text("A: 9 B: 7")
 	await textbox_closed
+	a_c = false
+	b_c = true
 	$ActionsPanel.show()
 	
 func question8():
@@ -130,13 +150,17 @@ func question8():
 	await textbox_closed
 	display_text("A: 14 B: 18")
 	await textbox_closed
+	a_c = true
+	b_c = false
 	$ActionsPanel.show()
 	
 func question9():
 	display_text("10 - 4 / 2 = ?")
 	await textbox_closed
-	display_text("A: 8 B: 3")
+	display_text("A: 3 B: 8")
 	await textbox_closed
+	a_c = false
+	b_c = true
 	$ActionsPanel.show()
 	
 func question10():
@@ -144,6 +168,8 @@ func question10():
 	await textbox_closed
 	display_text("A: 14 B: 11")
 	await textbox_closed
+	a_c = true
+	b_c = false
 	$ActionsPanel.show()
 	
 func question11():
@@ -151,6 +177,8 @@ func question11():
 	await textbox_closed
 	display_text("A: 1600 B: 160")
 	await textbox_closed
+	a_c = true
+	b_c = false
 	$ActionsPanel.show()		
 	
 func slime_turn():
@@ -233,18 +261,27 @@ func slime_turn():
 
 
 func _on_a_pressed():
-	is_defending = true
+	if a_c == true:
+		is_defending = true
 	
-	display_text("You: The answer is A!")
-	await textbox_closed
-	
-	$SlimeContainer/Boss.play("get_attack")
+		display_text("You: The answer is A!")
+		await textbox_closed
 		
-	current_slime_hunger = max(0, current_slime_hunger - StateH.damage)
-	set_hunger($SlimeContainer/ProgressBar, current_slime_hunger, slime.hunger)
-	await get_tree().create_timer(1.0).timeout	
+		$SlimeContainer/Boss.play("get_attack")
+			
+		current_slime_hunger = max(0, current_slime_hunger - StateH.damage)
+		set_hunger($SlimeContainer/ProgressBar, current_slime_hunger, slime.hunger)
+		await get_tree().create_timer(1.0).timeout
 	
 	if current_slime_hunger == 0:
+		if Global.defeat_boss == false:
+			Global.defeat_boss = true
+			$Trophy.show()
+			$ColorRect.show()
+			$AudioStreamPlayer2D2.play()
+			await get_tree().create_timer(1.5).timeout
+			$Trophy.hide()
+			$ColorRect.hide()
 		display_text("%s is sastify" % slime.name)
 		await textbox_closed
 		
@@ -258,10 +295,33 @@ func _on_a_pressed():
 
 
 func _on_b_pressed():
-	display_text("You: The answer is B!")
-	await textbox_closed
-
+	if b_c == true:
+		is_defending = true
+	
+		display_text("You: The answer is B!")
+		await textbox_closed
+		
+		$SlimeContainer/Boss.play("get_attack")
+			
+		current_slime_hunger = max(0, current_slime_hunger - StateH.damage)
+		set_hunger($SlimeContainer/ProgressBar, current_slime_hunger, slime.hunger)
+		await get_tree().create_timer(1.0).timeout
+		
+	
+	if current_slime_hunger == 0:
+		if Global.defeat_boss == false:
+			Global.defeat_boss = true
+			$Trophy.show()
+			$ColorRect.show()
+			$AudioStreamPlayer2D2.play()
+			await get_tree().create_timer(1.5).timeout
+			$Trophy.hide()
+			$ColorRect.hide()
+		display_text("%s is sastify" % slime.name)
+		await textbox_closed
+	
 	slime_turn()
+	
 
 
 func _on_idk_pressed():

@@ -1,0 +1,427 @@
+[gd_scene load_steps=16 format=3 uid="uid://lq6gcedbucp1"]
+
+[ext_resource type="Script" path="res://achievement_page.gd" id="1_jemf7"]
+[ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="2_3eedi"]
+[ext_resource type="Texture2D" uid="uid://inqtf2hxf8nk" path="res://Welcome_achievement-removebg-preview.png" id="3_rji88"]
+[ext_resource type="Texture2D" uid="uid://bnhht62ue6sqc" path="res://Empty_Trophy-removebg-preview.png" id="4_jqjf7"]
+[ext_resource type="Texture2D" uid="uid://b7f7ey86kiceg" path="res://Run_away_sucess-removebg-preview.png" id="5_00yv2"]
+[ext_resource type="Texture2D" uid="uid://b2d41agy0sggu" path="res://One_shot_kill-removebg-preview.png" id="6_v27l8"]
+[ext_resource type="Texture2D" uid="uid://diq70ffsletix" path="res://Stars_Collecter-removebg-preview.png" id="7_bogpm"]
+[ext_resource type="Texture2D" uid="uid://b5m06rfses4bk" path="res://Good_end-removebg-preview.png" id="8_cgqr2"]
+[ext_resource type="Texture2D" uid="uid://bd12v1tafct7i" path="res://Killed_the_boss-removebg-preview.png" id="9_mywvj"]
+[ext_resource type="Texture2D" uid="uid://c28dy5faumh80" path="res://Died_a-removebg-preview.png" id="10_qgdt1"]
+[ext_resource type="Texture2D" uid="uid://l2ov04eisjo" path="res://Skip_slidding_puzzle-removebg-preview.png" id="11_wdgoi"]
+[ext_resource type="Texture2D" uid="uid://bb2cpgh1b64i6" path="res://full_hp_victory-removebg-preview.png" id="12_0mg3f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crt3i"]
+bg_color = Color(0.00784314, 0.00784314, 0.00784314, 0.392157)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xh6e"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afmjo"]
+bg_color = Color(0, 0, 0, 0.686275)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Achievement Page" type="Node2D"]
+script = ExtResource("1_jemf7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 1131.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 75
+text = "Achievement Page"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 1131.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 30
+text = "(Will refresh if exit game)"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 848.0
+offset_top = 16.0
+offset_right = 1148.0
+offset_bottom = 107.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Back" type="Button" parent="MarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_crt3i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5xh6e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_afmjo")
+text = "Back"
+
+[node name="Welcome2" type="Sprite2D" parent="."]
+position = Vector2(97.9375, 213.242)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("3_rji88")
+
+[node name="Label" type="Label" parent="Welcome2"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "1st time play"
+
+[node name="Welcome" type="Sprite2D" parent="."]
+position = Vector2(97.9375, 213.242)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="Welcome"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "1st time play"
+
+[node name="Escape2" type="Sprite2D" parent="."]
+position = Vector2(96, 400)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("5_00yv2")
+
+[node name="Label" type="Label" parent="Escape2"]
+offset_left = 144.0
+offset_top = -144.0
+offset_right = 821.0
+offset_bottom = 4.0
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Successful 
+Runner"
+
+[node name="Label2" type="Label" parent="Escape2"]
+offset_left = 133.124
+offset_top = 22.1873
+offset_right = 810.124
+offset_bottom = 170.187
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "Escaped from slime"
+
+[node name="Escape" type="Sprite2D" parent="."]
+position = Vector2(96, 400)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="Escape"]
+offset_left = 144.0
+offset_top = -144.0
+offset_right = 821.0
+offset_bottom = 4.0
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Successful 
+Runner"
+
+[node name="Label2" type="Label" parent="Escape"]
+offset_left = 133.124
+offset_top = 22.1873
+offset_right = 810.124
+offset_bottom = 170.187
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "Escaped from slime"
+
+[node name="One shot2" type="Sprite2D" parent="."]
+position = Vector2(440, 208)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("6_v27l8")
+
+[node name="Label" type="Label" parent="One shot2"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Rapid Clicker"
+
+[node name="Label2" type="Label" parent="One shot2"]
+offset_left = 155.311
+offset_top = -44.3748
+offset_right = 869.311
+offset_bottom = 103.625
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "One shot kill egg slime"
+
+[node name="One shot" type="Sprite2D" parent="."]
+position = Vector2(440, 208)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="One shot"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Rapid Clicker"
+
+[node name="Label2" type="Label" parent="One shot"]
+offset_left = 155.311
+offset_top = -44.3748
+offset_right = 869.311
+offset_bottom = 103.625
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "One shot kill egg slime"
+
+[node name="Full Star2" type="Sprite2D" parent="."]
+position = Vector2(440, 392)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("7_bogpm")
+
+[node name="Label" type="Label" parent="Full Star2"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Stars Collecter"
+
+[node name="Label2" type="Label" parent="Full Star2"]
+offset_left = 155.311
+offset_top = -44.3748
+offset_right = 869.311
+offset_bottom = 103.625
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "Collect All the Stars"
+
+[node name="Full Star" type="Sprite2D" parent="."]
+position = Vector2(440, 392)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="Full Star"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Stars Collecter"
+
+[node name="Label2" type="Label" parent="Full Star"]
+offset_left = 155.311
+offset_top = -44.3748
+offset_right = 869.311
+offset_bottom = 103.625
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "Collect All the Stars"
+
+[node name="Good end2" type="Sprite2D" parent="."]
+position = Vector2(808, 200)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("8_cgqr2")
+
+[node name="Label" type="Label" parent="Good end2"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Good End"
+
+[node name="Good end" type="Sprite2D" parent="."]
+position = Vector2(808, 200)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="Good end"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Good End"
+
+[node name="Defeat boss2" type="Sprite2D" parent="."]
+position = Vector2(808, 376)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("9_mywvj")
+
+[node name="Label" type="Label" parent="Defeat boss2"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Defeated Boss"
+
+[node name="Defeat boss" type="Sprite2D" parent="."]
+position = Vector2(808, 376)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="Defeat boss"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Defeated Boss"
+
+[node name="bad end2" type="Sprite2D" parent="."]
+position = Vector2(96.0001, 560)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("10_qgdt1")
+
+[node name="Label" type="Label" parent="bad end2"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Bad End"
+
+[node name="bad end" type="Sprite2D" parent="."]
+position = Vector2(96.0001, 560)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="bad end"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "Bad End"
+
+[node name="Noob2" type="Sprite2D" parent="."]
+position = Vector2(440, 560)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("11_wdgoi")
+
+[node name="Label" type="Label" parent="Noob2"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "NOOB"
+
+[node name="Label2" type="Label" parent="Noob2"]
+offset_left = 155.311
+offset_top = -44.3748
+offset_right = 869.311
+offset_bottom = 103.625
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "Skip the slidding 
+puzzle"
+
+[node name="Noob" type="Sprite2D" parent="."]
+position = Vector2(440, 560)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="Noob"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "NOOB"
+
+[node name="Label2" type="Label" parent="Noob"]
+offset_left = 155.311
+offset_top = -44.3748
+offset_right = 869.311
+offset_bottom = 103.625
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "Skip the slidding 
+puzzle"
+
+[node name="Full heart2" type="Sprite2D" parent="."]
+position = Vector2(808, 560)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("12_0mg3f")
+
+[node name="Label" type="Label" parent="Full heart2"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "PRO"
+
+[node name="Label2" type="Label" parent="Full heart2"]
+offset_left = 155.311
+offset_top = -44.3748
+offset_right = 869.311
+offset_bottom = 103.625
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "Finish the game with
+full hp"
+
+[node name="Full heart" type="Sprite2D" parent="."]
+position = Vector2(808, 560)
+scale = Vector2(0.360566, 0.360566)
+texture = ExtResource("4_jqjf7")
+
+[node name="Label" type="Label" parent="Full heart"]
+offset_left = 143.958
+offset_top = -143.958
+offset_right = 1202.96
+offset_bottom = -39.9584
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 70
+text = "PRO"
+
+[node name="Label2" type="Label" parent="Full heart"]
+offset_left = 155.311
+offset_top = -44.3748
+offset_right = 869.311
+offset_bottom = 103.625
+theme_override_fonts/font = ExtResource("2_3eedi")
+theme_override_font_sizes/font_size = 50
+text = "Finish the game with
+full hp"
+
+[connection signal="button_up" from="MarginContainer/Back" to="." method="_on_back_button_up"]

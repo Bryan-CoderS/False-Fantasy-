@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bkw7gdpr4c67b"]
+[gd_scene load_steps=33 format=3 uid="uid://bkw7gdpr4c67b"]
 
 [ext_resource type="Texture2D" uid="uid://bsmc3kyypj1jy" path="res://cityBG.jpg" id="1_gdu0e"]
 [ext_resource type="Script" path="res://scene_3_1.gd" id="1_rj7so"]
 [ext_resource type="AudioStream" uid="uid://bbw26g05wwpv2" path="res://Leaf slime.mp3" id="2_1cmqp"]
 [ext_resource type="PackedScene" uid="uid://c4d2uvke714ft" path="res://player.tscn" id="2_parx4"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="2_s67sk"]
 [ext_resource type="Texture2D" uid="uid://vv56no58la1t" path="res://tile.jpg" id="3_15pb3"]
 [ext_resource type="Texture2D" uid="uid://2d6aa2mxvoel" path="res://arrow_7-removebg-preview.png" id="4_3gayt"]
 [ext_resource type="Texture2D" uid="uid://cfi2ed2gjwhp0" path="res://door1_0-removebg-preview.png" id="4_kig7x"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://chrcvbdybpua1" path="res://star.png" id="7_3k7d6"]
 [ext_resource type="PackedScene" uid="uid://3me8wra367h4" path="res://mushroom.tscn" id="9_ahrwt"]
 [ext_resource type="Texture2D" uid="uid://b43mib6v14hsb" path="res://slippery_block.jpg" id="10_eg4kp"]
+[ext_resource type="Texture2D" uid="uid://diq70ffsletix" path="res://Stars_Collecter-removebg-preview.png" id="11_heg2n"]
 [ext_resource type="PackedScene" uid="uid://qhuthgalrg3x" path="res://star.tscn" id="11_lpoby"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r5ysq"]
@@ -1526,10 +1528,17 @@ size = Vector2(578, 91)
 [node name="Scene3_1" type="Node2D"]
 script = ExtResource("1_rj7so")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-3117, -472)
+scale = Vector2(0.585739, 0.585739)
+stream = ExtResource("2_s67sk")
+max_distance = 2500.0
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(164, 447)
+position = Vector2(183, 447)
 stream = ExtResource("2_1cmqp")
 autoplay = true
+max_distance = 4000.0
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(768.276, 877.375)
@@ -1574,6 +1583,31 @@ script = ExtResource("6_1gncm")
 position = Vector2(-38.001, -106)
 scale = Vector2(0.190104, 0.190104)
 texture = ExtResource("7_3k7d6")
+
+[node name="Trophy" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(-592.812, -208.092)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("11_heg2n")
+
+[node name="Label" type="Label" parent="Player/Trophy"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_fonts/font = ExtResource("5_yfdwc")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Player/Trophy"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_fonts/font = ExtResource("5_yfdwc")
+theme_override_font_sizes/font_size = 60
+text = "Stars Collector
+"
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2101, 1926)

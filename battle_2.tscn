@@ -1,16 +1,19 @@
-[gd_scene load_steps=25 format=3 uid="uid://bycfvifxvodd2"]
+[gd_scene load_steps=28 format=3 uid="uid://bycfvifxvodd2"]
 
 [ext_resource type="Script" path="res://battle_2.gd" id="1_imf47"]
 [ext_resource type="Resource" uid="uid://bsc3l1pyh3qpt" path="res://EggSlime.tres" id="2_g1n28"]
 [ext_resource type="Texture2D" uid="uid://cs0m3rh71g1fj" path="res://bg_fight.jpg" id="3_k5yf1"]
 [ext_resource type="AudioStream" uid="uid://de1x43e525e2m" path="res://Egg slime battle.mp3" id="4_ejju7"]
 [ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="4_m8mgi"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="5_40a23"]
 [ext_resource type="FontFile" uid="uid://cn8120chtc6ds" path="res://slkscre.ttf" id="6_qmqli"]
 [ext_resource type="FontFile" uid="uid://dx3ef33xdewy4" path="res://slkscreb.ttf" id="7_yo1km"]
 [ext_resource type="Texture2D" uid="uid://cggqark5ij8c6" path="res://Egg_slime_click-removebg-preview.png" id="9_53jhe"]
 [ext_resource type="Texture2D" uid="uid://br4h4jnwbssdj" path="res://Egg_slime_01-removebg-preview.png" id="9_fwkvi"]
 [ext_resource type="Texture2D" uid="uid://bec8g3d7fjvs0" path="res://egg_slime_new-removebg-preview.png" id="9_wjbcc"]
 [ext_resource type="Texture2D" uid="uid://cd2ryoydke0kk" path="res://egg_slime_eat_new-removebg-preview.png" id="11_qdchh"]
+[ext_resource type="Texture2D" uid="uid://b7f7ey86kiceg" path="res://Run_away_sucess-removebg-preview.png" id="13_qoi0o"]
+[ext_resource type="Texture2D" uid="uid://b2d41agy0sggu" path="res://One_shot_kill-removebg-preview.png" id="14_m1e5x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5a15"]
 bg_color = Color(1, 0, 0, 1)
@@ -189,6 +192,11 @@ texture = ExtResource("3_k5yf1")
 position = Vector2(0, 552)
 stream = ExtResource("4_ejju7")
 autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(253.718, 456.693)
+scale = Vector2(0.34309, 0.34309)
+stream = ExtResource("5_40a23")
 
 [node name="SlimeContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -410,6 +418,68 @@ frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 248.0
+offset_top = 208.0
+offset_right = 1072.0
+offset_bottom = 344.0
+color = Color(0.827451, 0.784314, 0.666667, 1)
+
+[node name="Trophy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 288)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("13_qoi0o")
+
+[node name="Label" type="Label" parent="Trophy"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m8mgi")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Trophy"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_m8mgi")
+theme_override_font_sizes/font_size = 60
+text = "Successful Runner"
+
+[node name="Trophy2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 288)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("14_m1e5x")
+
+[node name="Label" type="Label" parent="Trophy2"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m8mgi")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Trophy2"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_m8mgi")
+theme_override_font_sizes/font_size = 60
+text = "Rapid Clicker"
 
 [connection signal="gui_input" from="SlimeContainer/Slime" to="." method="_on_slime_gui_input"]
 [connection signal="pressed" from="ActionsPanel/Actions/Feed" to="." method="_on_feed_pressed" flags=18]

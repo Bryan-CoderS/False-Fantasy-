@@ -121,6 +121,14 @@ func slime_turn():
 		var numbers = [0, 1, 2, 4, 5]
 		var sucess = numbers[randi() % numbers.size()]
 		if sucess == 1:
+			if Global.escape_a == false:
+				Global.escape_a = true
+				$Trophy.show()
+				$ColorRect.show()
+				$AudioStreamPlayer2D2.play()
+				await get_tree().create_timer(1.5).timeout
+				$Trophy.hide()
+				$ColorRect.hide()
 			display_text("You escaped successfully!")
 			await textbox_closed
 			await get_tree().create_timer(1.0).timeout	

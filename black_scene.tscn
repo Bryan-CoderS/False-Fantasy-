@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4pwyy8kkb1lt"]
+[gd_scene load_steps=6 format=3 uid="uid://b4pwyy8kkb1lt"]
 
 [ext_resource type="Script" path="res://black_scene.gd" id="1_udq5m"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="2_mve11"]
+[ext_resource type="Texture2D" uid="uid://b5m06rfses4bk" path="res://Good_end-removebg-preview.png" id="3_lxf0o"]
+[ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="4_8au13"]
+[ext_resource type="Texture2D" uid="uid://bb2cpgh1b64i6" path="res://full_hp_victory-removebg-preview.png" id="5_5slot"]
 
 [node name="BlackScene" type="Node2D"]
 script = ExtResource("1_udq5m")
@@ -9,3 +13,56 @@ script = ExtResource("1_udq5m")
 offset_right = 1144.0
 offset_bottom = 665.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(253.718, 456.693)
+scale = Vector2(0.34309, 0.34309)
+stream = ExtResource("2_mve11")
+
+[node name="Trophy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(151, 139)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("3_lxf0o")
+
+[node name="Label" type="Label" parent="Trophy"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_fonts/font = ExtResource("4_8au13")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Trophy"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_fonts/font = ExtResource("4_8au13")
+theme_override_font_sizes/font_size = 60
+text = "Good End"
+
+[node name="Trophy2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(168, 391)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("5_5slot")
+
+[node name="Label" type="Label" parent="Trophy2"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_fonts/font = ExtResource("4_8au13")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Trophy2"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_fonts/font = ExtResource("4_8au13")
+theme_override_font_sizes/font_size = 60
+text = "Pro"

@@ -10,6 +10,14 @@ func _ready():
 	DialogueManager.show_example_dialogue_balloon(load("res://Begining.dialogue"))
 	await DialogueManager.dialogue_ended
 	$Oceanbg.play("default")
+	
+	if Global.welcome_a == false:
+		$Player/Trophy.show()
+		$AudioStreamPlayer2D2.play()
+		Global.welcome_a = true
+		await get_tree().create_timer(2.0).timeout
+		$Player/Trophy.hide()
+		
 #	if player_touched == true:
 ##		load_position()
 #

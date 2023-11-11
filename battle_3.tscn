@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://du22jgk3r0nwo"]
+[gd_scene load_steps=37 format=3 uid="uid://du22jgk3r0nwo"]
 
 [ext_resource type="Texture2D" uid="uid://cs0m3rh71g1fj" path="res://bg_fight.jpg" id="1_5inpn"]
 [ext_resource type="Script" path="res://battle_3.gd" id="1_hkb0g"]
@@ -6,12 +6,14 @@
 [ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="2_te7kl"]
 [ext_resource type="AudioStream" uid="uid://barnxx5acw0le" path="res://Leaf slime battle.mp3" id="3_eo6b4"]
 [ext_resource type="FontFile" uid="uid://cn8120chtc6ds" path="res://slkscre.ttf" id="4_0hiyv"]
+[ext_resource type="AudioStream" uid="uid://dxearjv2mdouf" path="res://ding_a.mp3" id="4_3mxxq"]
 [ext_resource type="Texture2D" uid="uid://cdgbfpntwy2x4" path="res://slimeg_1-removebg-preview.png" id="4_awdq3"]
 [ext_resource type="FontFile" uid="uid://dx3ef33xdewy4" path="res://slkscreb.ttf" id="5_wqmb4"]
 [ext_resource type="Texture2D" uid="uid://d1tc5samqrgtf" path="res://combat_barnew-removebg-preview.png" id="7_8as18"]
 [ext_resource type="Script" path="res://CombatSlimebar.gd" id="8_qnu2t"]
 [ext_resource type="Texture2D" uid="uid://brbnle63jyx2d" path="res://combat_slimebarnew.png" id="9_pnkmf"]
 [ext_resource type="Texture2D" uid="uid://b2atbuxfbc7tk" path="res://slime_g_eat-removebg-preview.png" id="9_prl5m"]
+[ext_resource type="Texture2D" uid="uid://b7f7ey86kiceg" path="res://Run_away_sucess-removebg-preview.png" id="14_46qta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y47li"]
 bg_color = Color(1, 0, 0, 1)
@@ -204,10 +206,16 @@ slime = ExtResource("2_8gt28")
 stream = ExtResource("3_eo6b4")
 autoplay = true
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(253.718, 460.193)
+scale = Vector2(0.34309, 0.34309)
+stream = ExtResource("4_3mxxq")
+
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
+offset_top = 3.5
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 651.5
 texture = ExtResource("1_5inpn")
 
 [node name="SlimeContainer" type="VBoxContainer" parent="."]
@@ -218,9 +226,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 344.0
-offset_top = 80.0
+offset_top = 83.5
 offset_right = 777.0
-offset_bottom = 692.0
+offset_bottom = 695.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -257,9 +265,9 @@ stretch_mode = 3
 
 [node name="PlayerPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_top = 552.0
+offset_top = 555.5
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 651.5
 theme_override_styles/panel = SubResource("StyleBoxFlat_84en5")
 
 [node name="PlayerData" type="HBoxContainer" parent="PlayerPanel"]
@@ -308,7 +316,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CombatBar" type="Sprite2D" parent="."]
-position = Vector2(568, 112)
+position = Vector2(568, 115.5)
 texture = ExtResource("7_8as18")
 
 [node name="Apple" type="Area2D" parent="CombatBar"]
@@ -329,7 +337,7 @@ position = Vector2(-240, 0)
 shape = SubResource("RectangleShape2D_5no7k")
 
 [node name="CombatSlimebar" type="CharacterBody2D" parent="."]
-position = Vector2(600, 120)
+position = Vector2(600, 123.5)
 script = ExtResource("8_qnu2t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CombatSlimebar"]
@@ -350,8 +358,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+offset_top = 3.5
 offset_right = 1152.0
-offset_bottom = 96.0
+offset_bottom = 99.5
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_weekj")
 
@@ -419,14 +428,15 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -4.5)
 anchor_mode = 0
 
 [node name="Textbox" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 32.0
+offset_top = 3.5
 offset_right = 1120.0
-offset_bottom = 88.0
+offset_bottom = 91.5
 theme_override_styles/panel = SubResource("StyleBoxFlat_24m55")
 
 [node name="Label" type="Label" parent="Textbox"]
@@ -453,7 +463,7 @@ theme_override_font_sizes/font_size = 25
 text = ">"
 
 [node name="SlimeEat" type="AnimatedSprite2D" parent="."]
-position = Vector2(532, 280)
+position = Vector2(532, 283.5)
 scale = Vector2(2.66667, 2.51852)
 sprite_frames = SubResource("SpriteFrames_hley8")
 animation = &"eat"
@@ -461,14 +471,14 @@ frame = 2
 frame_progress = 1.0
 
 [node name="Left_Wall" type="Area2D" parent="."]
-position = Vector2(560, 104)
+position = Vector2(560, 107.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Wall"]
 position = Vector2(-240, -16)
 shape = SubResource("RectangleShape2D_te5pf")
 
 [node name="Right_wall" type="Area2D" parent="."]
-position = Vector2(40, 56)
+position = Vector2(40, 59.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right_wall"]
 position = Vector2(752, 40)
@@ -476,6 +486,41 @@ shape = SubResource("RectangleShape2D_te5pf")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 248.0
+offset_top = 208.0
+offset_right = 1072.0
+offset_bottom = 344.0
+color = Color(0.827451, 0.784314, 0.666667, 1)
+
+[node name="Trophy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 288)
+scale = Vector2(0.585739, 0.585739)
+texture = ExtResource("14_46qta")
+
+[node name="Label" type="Label" parent="Trophy"]
+offset_left = 172.111
+offset_top = -110.814
+offset_right = 212.111
+offset_bottom = -39.8141
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_te7kl")
+theme_override_font_sizes/font_size = 100
+text = "Achievement Unlocked"
+
+[node name="Label2" type="Label" parent="Trophy"]
+offset_left = 218.208
+offset_top = -3.25769
+offset_right = 706.208
+offset_bottom = 100.742
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_te7kl")
+theme_override_font_sizes/font_size = 60
+text = "Successful Runner"
 
 [connection signal="area_shape_entered" from="CombatBar/Apple" to="CombatSlimebar" method="_on_apple_area_shape_entered"]
 [connection signal="area_shape_exited" from="CombatBar/Apple" to="CombatSlimebar" method="_on_apple_area_shape_exited"]

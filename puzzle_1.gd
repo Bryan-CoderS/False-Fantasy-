@@ -92,6 +92,14 @@ func _input_event(viewport, event, shape_idx):
 
 
 func _on_start_button_button_up():
+	if Global.noob == false:
+		Global.noob = true
+		$Trophy.show()
+		$ColorRect.show()
+		$AudioStreamPlayer2D2.play()
+		await get_tree().create_timer(2).timeout
+		$Trophy.hide()
+		$ColorRect.hide()
 	Global.hp = Global.hp - 1
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file(Scene_2.resource_path)

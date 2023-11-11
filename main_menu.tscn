@@ -41,7 +41,7 @@ stream = ExtResource("4_ji4mg")
 autoplay = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1152.0
+offset_right = 1269.0
 offset_bottom = 648.0
 theme_override_constants/margin_left = 200
 theme_override_constants/margin_top = 75
@@ -78,11 +78,29 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_sej15")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_lng67")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3k81w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fdasm")
 text = "Start"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Achievement" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_sej15")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_lng67")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3k81w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fdasm")
+text = "Achievement"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -96,11 +114,12 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_sej15")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_lng67")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3k81w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fdasm")
 text = "Exit"
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Start Button" to="." method="_on_start_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Achievement" to="." method="_on_achievement_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/Exit Button" to="." method="_on_exit_button_button_up"]
