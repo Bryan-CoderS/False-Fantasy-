@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtru003cospu4"]
+
+[ext_resource type="Texture2D" uid="uid://gesvpfmax358" path="res://wizzard_bullet.png" id="1_cub7r"]
+[ext_resource type="Script" path="res://slime_bullet.gd" id="1_rnixv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rdqru"]
+radius = 37.6186
+
+[node name="slime_bullet" type="Sprite2D"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_cub7r")
+script = ExtResource("1_rnixv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-293.333, -156.667)
+shape = SubResource("CircleShape2D_rdqru")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-296.667, -156.667)
+scale = Vector2(3.12241, 3.26365)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,114 @@
+[gd_scene load_steps=18 format=3 uid="uid://cmec1666v7tg0"]
+
+[ext_resource type="Script" path="res://boss_slime.gd" id="1_ktm4r"]
+[ext_resource type="Texture2D" uid="uid://ch827xt3ki8ky" path="res://boss_attack_you-removebg-preview.png" id="1_ndtym"]
+[ext_resource type="Texture2D" uid="uid://ftlgo2y70qwv" path="res://boss_enter_fight-removebg-preview.png" id="2_iutu5"]
+[ext_resource type="Texture2D" uid="uid://cdh7mcbjiq2wi" path="res://boss_get_attacked-removebg-preview.png" id="3_ekxyq"]
+[ext_resource type="Script" path="res://State Machine.gd" id="4_l6qym"]
+[ext_resource type="Script" path="res://EnemyIdle.gd" id="5_0h1xe"]
+[ext_resource type="Texture2D" uid="uid://d0oojqmg22plk" path="res://boss_normal-removebg-preview.png" id="5_vjdyn"]
+[ext_resource type="Script" path="res://State/EnemyFollow.gd" id="6_d4oh2"]
+[ext_resource type="PackedScene" uid="uid://bhigvwujs45mm" path="res://interaction_area.tscn" id="7_l614s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fqgm"]
+atlas = ExtResource("1_ndtym")
+region = Rect2(0, 0, 293, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u5wg"]
+atlas = ExtResource("1_ndtym")
+region = Rect2(293, 0, 293, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf7op"]
+atlas = ExtResource("2_iutu5")
+region = Rect2(0, 0, 297, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to8mo"]
+atlas = ExtResource("2_iutu5")
+region = Rect2(297, 0, 297, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghtyj"]
+atlas = ExtResource("3_ekxyq")
+region = Rect2(0, 0, 297, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5uak"]
+atlas = ExtResource("3_ekxyq")
+region = Rect2(297, 0, 297, 282)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2n2gw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fqgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u5wg")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf7op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to8mo")
+}],
+"loop": false,
+"name": &"enter_fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghtyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5uak")
+}],
+"loop": false,
+"name": &"get_attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vjdyn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8u06"]
+size = Vector2(412, 292)
+
+[node name="BossSlime" type="CharacterBody2D"]
+script = ExtResource("1_ktm4r")
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+position = Vector2(533, 303)
+sprite_frames = SubResource("SpriteFrames_2n2gw")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(545, 331)
+shape = SubResource("RectangleShape2D_b8u06")
+
+[node name="State Machine" type="Node" parent="."]
+script = ExtResource("4_l6qym")
+initial_state = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_0h1xe")
+enemy = NodePath("../..")
+move_speed = 15.0
+
+[node name="EnemyFollow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_d4oh2")
+enemy = NodePath("../..")
+move_speed = 45.0
+
+[node name="InteractionArea" parent="." instance=ExtResource("7_l614s")]
+position = Vector2(535, 346)
+interact_label = "BossSlime(E)"
+interact_type = "print_text"
+interact_value = "Food"

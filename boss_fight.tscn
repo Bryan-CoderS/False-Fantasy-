@@ -1,0 +1,120 @@
+[gd_scene load_steps=16 format=3 uid="uid://bkksh8b830a37"]
+
+[ext_resource type="Texture2D" uid="uid://ch827xt3ki8ky" path="res://boss_attack_you-removebg-preview.png" id="1_26ii3"]
+[ext_resource type="Texture2D" uid="uid://cs0m3rh71g1fj" path="res://bg_fight.jpg" id="1_hl7yw"]
+[ext_resource type="Script" path="res://boss_fight.gd" id="1_ylq5g"]
+[ext_resource type="Texture2D" uid="uid://ftlgo2y70qwv" path="res://boss_enter_fight-removebg-preview.png" id="3_ay3ic"]
+[ext_resource type="Texture2D" uid="uid://cdh7mcbjiq2wi" path="res://boss_get_attacked-removebg-preview.png" id="4_gu2hw"]
+[ext_resource type="Texture2D" uid="uid://fn0vt55h7pde" path="res://boss_text.jpg" id="5_7t0d3"]
+[ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="6_5ht7t"]
+[ext_resource type="Script" path="res://boss_attack.gd" id="7_ccd0c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fqgm"]
+atlas = ExtResource("1_26ii3")
+region = Rect2(0, 0, 293, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u5wg"]
+atlas = ExtResource("1_26ii3")
+region = Rect2(293, 0, 293, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf7op"]
+atlas = ExtResource("3_ay3ic")
+region = Rect2(0, 0, 297, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to8mo"]
+atlas = ExtResource("3_ay3ic")
+region = Rect2(297, 0, 297, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghtyj"]
+atlas = ExtResource("4_gu2hw")
+region = Rect2(0, 0, 297, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5uak"]
+atlas = ExtResource("4_gu2hw")
+region = Rect2(297, 0, 297, 282)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3djpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fqgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u5wg")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf7op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to8mo")
+}],
+"loop": false,
+"name": &"enter_fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghtyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5uak")
+}],
+"loop": false,
+"name": &"get_attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fqgm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="BossFight" type="Node2D"]
+script = ExtResource("1_ylq5g")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -52.0
+offset_top = -31.0
+offset_right = 1193.0
+offset_bottom = 714.0
+texture = ExtResource("1_hl7yw")
+stretch_mode = 1
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+position = Vector2(533, 303)
+sprite_frames = SubResource("SpriteFrames_3djpn")
+animation = &"idle"
+
+[node name="TextContainer" type="Node2D" parent="."]
+
+[node name="Text" type="Sprite2D" parent="TextContainer"]
+position = Vector2(821, 328)
+texture = ExtResource("5_7t0d3")
+script = ExtResource("7_ccd0c")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextContainer/Text"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -11.0
+offset_right = -128.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_5ht7t")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]type this[center]"
+scroll_active = false

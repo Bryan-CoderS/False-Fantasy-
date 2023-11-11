@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://gf7kbd0t7bi"
+path="res://.godot/imported/flappy.dialogue-14678791af083f2cfccae0913a0ee516.tres"
+
+[deps]
+
+source_file="res://flappy.dialogue"
+dest_files=["res://.godot/imported/flappy.dialogue-14678791af083f2cfccae0913a0ee516.tres"]
+
+[params]
+
+defaults=true

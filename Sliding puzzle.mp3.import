@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbxp5u2ldc0be"
+path="res://.godot/imported/Sliding puzzle.mp3-2ab87f8246e9d52bde0082d2b72b5389.mp3str"
+
+[deps]
+
+source_file="res://Sliding puzzle.mp3"
+dest_files=["res://.godot/imported/Sliding puzzle.mp3-2ab87f8246e9d52bde0082d2b72b5389.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

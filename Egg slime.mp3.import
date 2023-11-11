@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5s32d341lryx"
+path="res://.godot/imported/Egg slime.mp3-8c10e324cf85be37dd72ffdb834859c7.mp3str"
+
+[deps]
+
+source_file="res://Egg slime.mp3"
+dest_files=["res://.godot/imported/Egg slime.mp3-8c10e324cf85be37dd72ffdb834859c7.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

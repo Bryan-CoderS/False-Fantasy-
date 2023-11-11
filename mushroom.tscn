@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://3me8wra367h4"]
+
+[ext_resource type="Script" path="res://Mushroom.gd" id="1_a7x2s"]
+[ext_resource type="Texture2D" uid="uid://b00f55q3bmxau" path="res://mushroom-removebg-preview.png" id="2_7jg8a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5akbl"]
+atlas = ExtResource("2_7jg8a")
+region = Rect2(0, 0, 137, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdhsu"]
+atlas = ExtResource("2_7jg8a")
+region = Rect2(137, 0, 137, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b4s2"]
+atlas = ExtResource("2_7jg8a")
+region = Rect2(274, 0, 137, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_herys"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5akbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdhsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b4s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5akbl")
+}],
+"loop": false,
+"name": &"boing",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4h0q"]
+size = Vector2(110, 68)
+
+[node name="Mushroom" type="Node2D"]
+script = ExtResource("1_a7x2s")
+
+[node name="MushroomAnim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_herys")
+animation = &"boing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomAnim"]
+light_mask = 8
+visibility_layer = 8
+position = Vector2(-1, 82)
+shape = SubResource("RectangleShape2D_b4h0q")

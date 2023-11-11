@@ -1,0 +1,489 @@
+[gd_scene load_steps=35 format=3 uid="uid://du22jgk3r0nwo"]
+
+[ext_resource type="Texture2D" uid="uid://cs0m3rh71g1fj" path="res://bg_fight.jpg" id="1_5inpn"]
+[ext_resource type="Script" path="res://battle_3.gd" id="1_hkb0g"]
+[ext_resource type="Resource" uid="uid://diwd38mewp18a" path="res://LeafSlime.tres" id="2_8gt28"]
+[ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="2_te7kl"]
+[ext_resource type="AudioStream" uid="uid://barnxx5acw0le" path="res://Leaf slime battle.mp3" id="3_eo6b4"]
+[ext_resource type="FontFile" uid="uid://cn8120chtc6ds" path="res://slkscre.ttf" id="4_0hiyv"]
+[ext_resource type="Texture2D" uid="uid://cdgbfpntwy2x4" path="res://slimeg_1-removebg-preview.png" id="4_awdq3"]
+[ext_resource type="FontFile" uid="uid://dx3ef33xdewy4" path="res://slkscreb.ttf" id="5_wqmb4"]
+[ext_resource type="Texture2D" uid="uid://d1tc5samqrgtf" path="res://combat_barnew-removebg-preview.png" id="7_8as18"]
+[ext_resource type="Script" path="res://CombatSlimebar.gd" id="8_qnu2t"]
+[ext_resource type="Texture2D" uid="uid://brbnle63jyx2d" path="res://combat_slimebarnew.png" id="9_pnkmf"]
+[ext_resource type="Texture2D" uid="uid://b2atbuxfbc7tk" path="res://slime_g_eat-removebg-preview.png" id="9_prl5m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y47li"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvhvg"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84en5"]
+bg_color = Color(0, 0, 0, 0.639216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emdvc"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkg77"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44df7"]
+size = Vector2(152, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5no7k"]
+size = Vector2(160, 56)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_42d8q"]
+radius = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_weekj"]
+bg_color = Color(0, 0, 0, 0.639216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j7dr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkhop"]
+bg_color = Color(0.745098, 0.745098, 0.745098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6s4c"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_rt1np"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeContainer/Slime:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlimeContainer/Slime:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_35dco"]
+resource_name = "mini_shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-56, 96), Vector2(192, 24), Vector2(-8, 8), Vector2(17.8, 1), Vector2(0, 0), Vector2(-5, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_6sg24"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-56, 96), Vector2(-128, -32), Vector2(192, 24), Vector2(20, -1), Vector2(-8, 8), Vector2(168, -40), Vector2(17.8, 1), Vector2(48, 88), Vector2(29, 1), Vector2(0, 0), Vector2(-5, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_fabhl"]
+resource_name = "slime_die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeContainer/Slime:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3ow2"]
+_data = {
+"RESET": SubResource("Animation_rt1np"),
+"mini_shake": SubResource("Animation_35dco"),
+"shake": SubResource("Animation_6sg24"),
+"slime_die": SubResource("Animation_fabhl")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24m55"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnp8f"]
+atlas = ExtResource("9_prl5m")
+region = Rect2(0, 0, 213, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfu3l"]
+atlas = ExtResource("9_prl5m")
+region = Rect2(213, 0, 213, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hley8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnp8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfu3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnp8f")
+}],
+"loop": false,
+"name": &"eat",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te5pf"]
+size = Vector2(20, 120)
+
+[node name="Battle3" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hkb0g")
+slime = ExtResource("2_8gt28")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_eo6b4")
+autoplay = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_5inpn")
+
+[node name="SlimeContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 344.0
+offset_top = 80.0
+offset_right = 777.0
+offset_bottom = 692.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="SlimeContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_y47li")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tvhvg")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="SlimeContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("2_te7kl")
+text = "Hunger: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slime" type="TextureRect" parent="SlimeContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_awdq3")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="PlayerPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 552.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_84en5")
+
+[node name="PlayerData" type="HBoxContainer" parent="PlayerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_te7kl")
+theme_override_font_sizes/font_size = 30
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_emdvc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tkg77")
+step = 1.0
+value = 25.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("2_te7kl")
+text = "Hp: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CombatBar" type="Sprite2D" parent="."]
+position = Vector2(568, 112)
+texture = ExtResource("7_8as18")
+
+[node name="Apple" type="Area2D" parent="CombatBar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatBar/Apple"]
+position = Vector2(-12, -12)
+shape = SubResource("RectangleShape2D_44df7")
+
+[node name="Miss" type="Area2D" parent="CombatBar"]
+position = Vector2(72, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatBar/Miss"]
+position = Vector2(72, 4)
+shape = SubResource("RectangleShape2D_5no7k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CombatBar/Miss"]
+position = Vector2(-240, 0)
+shape = SubResource("RectangleShape2D_5no7k")
+
+[node name="CombatSlimebar" type="CharacterBody2D" parent="."]
+position = Vector2(600, 120)
+script = ExtResource("8_qnu2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatSlimebar"]
+texture = ExtResource("9_pnkmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatSlimebar"]
+position = Vector2(-40, -24)
+shape = SubResource("CircleShape2D_42d8q")
+
+[node name="Area2D" type="Area2D" parent="CombatSlimebar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatSlimebar/Area2D"]
+position = Vector2(-40, -24)
+shape = SubResource("CircleShape2D_42d8q")
+
+[node name="ActionsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 1152.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_weekj")
+
+[node name="Actions" type="HBoxContainer" parent="ActionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Feed" type="Button" parent="ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_te7kl")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_0j7dr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mkhop")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f6s4c")
+text = "Feed"
+
+[node name="Defend" type="Button" parent="ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_te7kl")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_0j7dr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mkhop")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f6s4c")
+text = "Defend"
+
+[node name="Run" type="Button" parent="ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_te7kl")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_0j7dr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mkhop")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f6s4c")
+text = "Run"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_s3ow2")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -8)
+anchor_mode = 0
+
+[node name="Textbox" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 1120.0
+offset_bottom = 88.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_24m55")
+
+[node name="Label" type="Label" parent="Textbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_0hiyv")
+theme_override_font_sizes/font_size = 45
+text = "A hungry slime appears!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ticker" type="Label" parent="Textbox"]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 56.0
+offset_right = 1040.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("5_wqmb4")
+theme_override_font_sizes/font_size = 25
+text = ">"
+
+[node name="SlimeEat" type="AnimatedSprite2D" parent="."]
+position = Vector2(532, 280)
+scale = Vector2(2.66667, 2.51852)
+sprite_frames = SubResource("SpriteFrames_hley8")
+animation = &"eat"
+frame = 2
+frame_progress = 1.0
+
+[node name="Left_Wall" type="Area2D" parent="."]
+position = Vector2(560, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Wall"]
+position = Vector2(-240, -16)
+shape = SubResource("RectangleShape2D_te5pf")
+
+[node name="Right_wall" type="Area2D" parent="."]
+position = Vector2(40, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_wall"]
+position = Vector2(752, 40)
+shape = SubResource("RectangleShape2D_te5pf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="area_shape_entered" from="CombatBar/Apple" to="CombatSlimebar" method="_on_apple_area_shape_entered"]
+[connection signal="area_shape_exited" from="CombatBar/Apple" to="CombatSlimebar" method="_on_apple_area_shape_exited"]
+[connection signal="area_shape_entered" from="CombatBar/Miss" to="CombatSlimebar" method="_on_miss_area_shape_entered"]
+[connection signal="area_shape_exited" from="CombatBar/Miss" to="CombatSlimebar" method="_on_miss_area_shape_exited"]
+[connection signal="pressed" from="ActionsPanel/Actions/Feed" to="." method="_on_feed_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed"]
+[connection signal="area_shape_entered" from="Left_Wall" to="CombatSlimebar" method="_on_left_wall_area_shape_entered"]
+[connection signal="area_shape_entered" from="Right_wall" to="CombatSlimebar" method="_on_right_wall_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

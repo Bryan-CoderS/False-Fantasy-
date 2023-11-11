@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://b34r0obbvo40o"]
+
+[ext_resource type="Script" path="res://Fs_wizard_slime.gd" id="1_7aqmf"]
+[ext_resource type="Texture2D" uid="uid://cfxtd7ed3ojjb" path="res://fs_wizzard_slime-removebg-preview.png" id="2_088cp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1rxa"]
+size = Vector2(151, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwuuf"]
+atlas = ExtResource("2_088cp")
+region = Rect2(0, 0, 264, 433)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ksi7"]
+atlas = ExtResource("2_088cp")
+region = Rect2(264, 0, 264, 433)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acdtk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwuuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ksi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwuuf")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="Fs_wizard_slime" type="CharacterBody2D"]
+position = Vector2(680, 369)
+script = ExtResource("1_7aqmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_p1rxa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-23, 31)
+scale = Vector2(0.799242, 0.793303)
+sprite_frames = SubResource("SpriteFrames_acdtk")
+animation = &"shoot"
+frame = 2
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="bullet_pos" type="Marker2D" parent="."]
+position = Vector2(-118, -1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

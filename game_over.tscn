@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddwr8qrxu38jx"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_0wrcl"]
+[ext_resource type="Texture2D" uid="uid://ov00diqunsds" path="res://gameover_1.jpg" id="2_e5rrp"]
+[ext_resource type="Texture2D" uid="uid://x4mjfqorwdmv" path="res://bad_end_8.jpg" id="2_pccxv"]
+[ext_resource type="Texture2D" uid="uid://bywhikf2mmiyx" path="res://gameover_2.jpg" id="3_dx1as"]
+[ext_resource type="Texture2D" uid="uid://cxd0hcfks2x7c" path="res://gameover_3.jpg" id="4_mgwv6"]
+[ext_resource type="Texture2D" uid="uid://basl5vsmn4rc7" path="res://gameover_4.jpg" id="5_q40yi"]
+[ext_resource type="AudioStream" uid="uid://uha0d7xf4f3c" path="res://game over.mp3" id="7_jankw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6i7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e5rrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dx1as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mgwv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q40yi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pccxv")
+}],
+"loop": false,
+"name": &"end",
+"speed": 5.0
+}]
+
+[node name="Game Over" type="Node2D"]
+script = ExtResource("1_0wrcl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(578, 327)
+sprite_frames = SubResource("SpriteFrames_k6i7g")
+animation = &"end"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jankw")

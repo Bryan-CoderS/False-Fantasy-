@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://c02y0rg3tb81d"]
+
+[ext_resource type="Script" path="res://maze_slime.gd" id="1_d32is"]
+[ext_resource type="Texture2D" uid="uid://d3y3mcrkvq173" path="res://slime_maze-removebg-preview.png" id="1_f3q3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d12co"]
+size = Vector2(88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78v4y"]
+atlas = ExtResource("1_f3q3w")
+region = Rect2(0, 0, 130, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb5pt"]
+atlas = ExtResource("1_f3q3w")
+region = Rect2(130, 0, 130, 148)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcns6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78v4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb5pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78v4y")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="Maze Slime" type="CharacterBody2D"]
+script = ExtResource("1_d32is")
+
+[node name="bullet_pos" type="Marker2D" parent="."]
+position = Vector2(64, 16)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 20)
+shape = SubResource("RectangleShape2D_d12co")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jcns6")
+animation = &"shoot"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

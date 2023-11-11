@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://dpdu47uobx5y6"]
+
+[ext_resource type="Script" path="res://slime_g.gd" id="1_4gykk"]
+[ext_resource type="Texture2D" uid="uid://cdgbfpntwy2x4" path="res://slimeg_1-removebg-preview.png" id="1_ryyp7"]
+[ext_resource type="Texture2D" uid="uid://c1oc2it13vifh" path="res://slimeg_2-removebg-preview.png" id="2_5acel"]
+[ext_resource type="Texture2D" uid="uid://c386cpdicf412" path="res://slimeg_3-removebg-preview.png" id="3_cp7sw"]
+[ext_resource type="Texture2D" uid="uid://b1d10wsadjtpc" path="res://slimeg_4-removebg-preview.png" id="4_36xfu"]
+[ext_resource type="Texture2D" uid="uid://c7ev1hrbp88xj" path="res://slimeg_5-removebg-preview.png" id="5_pydem"]
+[ext_resource type="Texture2D" uid="uid://tki77a1rlf5t" path="res://slimeg_6-removebg-preview.png" id="6_rwr28"]
+[ext_resource type="Script" path="res://State Machine.gd" id="7_o23ro"]
+[ext_resource type="Script" path="res://EnemyIdle.gd" id="8_3imf2"]
+[ext_resource type="Script" path="res://State/EnemyFollow.gd" id="9_maw3n"]
+[ext_resource type="PackedScene" uid="uid://bhigvwujs45mm" path="res://interaction_area.tscn" id="10_wct0j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6pi2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ryyp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5acel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cp7sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_36xfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pydem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rwr28")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l80vf"]
+size = Vector2(338, 231)
+
+[node name="SlimeG" type="CharacterBody2D"]
+script = ExtResource("1_4gykk")
+
+[node name="SlimeGSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(79.5, 79.5)
+scale = Vector2(0.682, 0.682)
+sprite_frames = SubResource("SpriteFrames_6pi2n")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(66, 93.5)
+shape = SubResource("RectangleShape2D_l80vf")
+
+[node name="State Machine" type="Node" parent="."]
+script = ExtResource("7_o23ro")
+initial_state = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("8_3imf2")
+enemy = NodePath("../..")
+move_speed = 15.0
+
+[node name="EnemyFollow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("9_maw3n")
+enemy = NodePath("../..")
+move_speed = 45.0
+
+[node name="InteractionArea" parent="." instance=ExtResource("10_wct0j")]
+position = Vector2(28, 102)
+interact_label = "LeafSlime"
+interact_type = "print_text"
+interact_value = "Food"

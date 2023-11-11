@@ -1,0 +1,104 @@
+[gd_scene load_steps=19 format=3 uid="uid://b7h08tl5mujuk"]
+
+[ext_resource type="Script" path="res://puzzle_2.gd" id="1_7boqf"]
+[ext_resource type="PackedScene" uid="uid://dtjjn17lg66sh" path="res://scene_3.tscn" id="2_udu7a"]
+[ext_resource type="AudioStream" uid="uid://r1c4gpxm3hmv" path="res://A Journey Awaits.mp3" id="3_1tkhj"]
+[ext_resource type="Texture2D" uid="uid://djtf50e2nvgj2" path="res://mush_1.jpg" id="3_jaywm"]
+[ext_resource type="Texture2D" uid="uid://dh6s85ljs0c73" path="res://mush_2.jpg" id="4_go1j3"]
+[ext_resource type="Texture2D" uid="uid://d0tigmdo021xe" path="res://mush_3.jpg" id="5_26vwx"]
+[ext_resource type="Texture2D" uid="uid://ibky33wbu3qp" path="res://mush_4.jpg" id="6_kja66"]
+[ext_resource type="Texture2D" uid="uid://byumaj5qkcpv5" path="res://mush_5.jpg" id="7_b1hec"]
+[ext_resource type="Texture2D" uid="uid://c6ii4yij353x8" path="res://mush_6.jpg" id="8_5du41"]
+[ext_resource type="Texture2D" uid="uid://bok4dci8wwg8d" path="res://mush_7.jpg" id="9_m46mq"]
+[ext_resource type="Texture2D" uid="uid://dp1uyrgjp62ei" path="res://mush_8.jpg" id="10_qr57d"]
+[ext_resource type="Texture2D" uid="uid://xsjmsjd7h2gl" path="res://sliding_puzzle9.jpg" id="11_1yh5o"]
+[ext_resource type="Texture2D" uid="uid://f86swjkk5abb" path="res://level_1-removebg-preview.png" id="12_hc75x"]
+[ext_resource type="Texture2D" uid="uid://demxsuvkhn37r" path="res://level_2-removebg-preview.png" id="13_ylvlr"]
+[ext_resource type="FontFile" uid="uid://da1qdy405mw0s" path="res://slkscr.ttf" id="14_ilfkj"]
+[ext_resource type="Texture2D" uid="uid://cxdhc82gkko6u" path="res://level_3-removebg-preview.png" id="14_pyogf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke6cf"]
+size = Vector2(750, 750)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsyw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_hc75x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ylvlr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pyogf")
+}],
+"loop": false,
+"name": &"Pull",
+"speed": 5.0
+}]
+
+[node name="puzzle_2" type="Area2D"]
+script = ExtResource("1_7boqf")
+Scene_3 = ExtResource("2_udu7a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(880, 424)
+scale = Vector2(0.258, 0.322099)
+stream = ExtResource("3_1tkhj")
+autoplay = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(376, 376)
+shape = SubResource("RectangleShape2D_ke6cf")
+
+[node name="Puzzle1" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+texture = ExtResource("3_jaywm")
+centered = false
+
+[node name="Puzzle2" type="Sprite2D" parent="."]
+position = Vector2(376, 126)
+texture = ExtResource("4_go1j3")
+
+[node name="Puzzle3" type="Sprite2D" parent="."]
+position = Vector2(626, 126)
+texture = ExtResource("5_26vwx")
+
+[node name="Puzzle4" type="Sprite2D" parent="."]
+position = Vector2(126, 376)
+texture = ExtResource("6_kja66")
+
+[node name="Puzzle5" type="Sprite2D" parent="."]
+position = Vector2(376, 376)
+texture = ExtResource("7_b1hec")
+
+[node name="Puzzle6" type="Sprite2D" parent="."]
+position = Vector2(626, 376)
+texture = ExtResource("8_5du41")
+
+[node name="Puzzle7" type="Sprite2D" parent="."]
+position = Vector2(126, 626)
+texture = ExtResource("9_m46mq")
+
+[node name="Puzzle8" type="Sprite2D" parent="."]
+position = Vector2(376, 626)
+texture = ExtResource("10_qr57d")
+
+[node name="Puzzle9" type="Sprite2D" parent="."]
+position = Vector2(626, 626)
+texture = ExtResource("11_1yh5o")
+
+[node name="LevelSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(928, 344)
+scale = Vector2(0.258, 0.322099)
+sprite_frames = SubResource("SpriteFrames_lsyw0")
+animation = &"Pull"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelSprite"]
+offset_left = -186.047
+offset_top = 248.371
+offset_right = 387.953
+offset_bottom = 483.371
+theme_override_fonts/normal_font = ExtResource("14_ilfkj")
+theme_override_font_sizes/normal_font_size = 50
+text = "Solve the puzzle to fixed the bridge and go to the next level."

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://dg3xtv0hoy8gx"
+path="res://.godot/imported/20star.dialogue-9c38b3b233e6404c87b050476c8f9a80.tres"
+
+[deps]
+
+source_file="res://20star.dialogue"
+dest_files=["res://.godot/imported/20star.dialogue-9c38b3b233e6404c87b050476c8f9a80.tres"]
+
+[params]
+
+defaults=true
