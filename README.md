@@ -3,4 +3,4 @@ FALSE FANTASY is an immersive RPG game where players can embark on an adventure 
 
 🫧 Challenge yourself with our new achievement system! Can you get them all, dreamer?
 ## Stream Recording
-https://drive.google.com/file/d/1NkGrofkWe04oVLkmtOa5jjuBIL9DCoVn/view?usp=sharing
+https://drive.google.com/file/d/1MOWxLXSdJ-EjCsMIo2gbiD5_3BuUxKmK/view?usp=sharing
